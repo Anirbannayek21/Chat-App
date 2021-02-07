@@ -24,6 +24,10 @@ $join.addEventListener('click',()=>{
 
 socket.on('view',(groups)=>{
     console.log(groups)
+    if(groups.length===0){
+        alert("There is no active group.Please create a group")
+        location.href='/'
+    }
     const html = Mustache.render($exstgroup,{
         groups
     })
