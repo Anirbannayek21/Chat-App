@@ -3,7 +3,7 @@ const http = require('http')
 const express=require('express');
 const socketio = require('socket.io')
 const { genarateMessage }= require('./utilis/message')
-const { addUser,removeUser,getUser,getUserINGroup } = require('./utilis/users')
+const { addUser,removeUser,getUser,getUserINGroup,getGroups } = require('./utilis/users')
 const port = process.env.PORT || 3000
 
 const app=express()
@@ -44,6 +44,7 @@ io.on('connection',(socket)=>{
             groupname:user.groupname,
             users:getUserINGroup(user.groupname)
         })
+        
         callback()
 
         
@@ -92,7 +93,13 @@ io.on('connection',(socket)=>{
             })
         }
     })
+
+    socket.on('groupname',()=>{
+        const groups = getGroups()
+        socket.emit('view',groups)
+    })
 })
+
 
 server.listen(port,()=>{
     console.log(`server running on port ${port}` )

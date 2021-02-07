@@ -117,15 +117,13 @@ socket.on('LocationMassagereceiver',(url)=>{
 })
 
 socket.on('groupData',({groupname,users})=>{
-    console.log(groupname)
     const html = Mustache.render(sidebartemplate,{
         groupname:groupname,
         users
     })
     document.querySelector('#sidebar').innerHTML=html
-
-
 })
+
 // client emit
 $massageform .addEventListener('submit',(e)=>{
     e.preventDefault()
@@ -182,3 +180,5 @@ socket.emit('join',{username,groupname},(error)=>{
         location.href='/'
     }
 })
+
+

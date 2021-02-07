@@ -11,14 +11,40 @@
     <div class="centered-form ">
         <div class="centered-form__box">
             <h1>Join</h1><br>
-            <form action="./chat.html">
-            <label>Enter Name</label>
-            <input type="text" name="username" placeholder="Enter Your Name" required><br>
-            <label >Enter Group name</label>
-            <input type="text" name="groupname" placeholder="Enter Group Name" required><br><br>
-            <button>join</button>
+            <form action="./chat.html" id="form">
+                <label>Enter Name</label>
+                <input type="text" name="username" placeholder="Enter Your Name" required><br>
+                <div id="enter-option">
+                    <button id="Create">Create a Group</button> <button id="join">Join in Existing Group</button>
+                </div>
+                <div id="details">
+                    <div id="new-group">
+                        <label >Enter Group name</label>
+                        <input type="text" name="groupname" placeholder="Enter Your group Name" ><br>
+                        <button>join</button>
+                    </div>
+                    <div id="existing-group">
+                        <label >Select your Group name</label>
+                        <select type="text" id="select-option" name="groupname"  >
+                            <option value="">--Please choose an option--</option>
+                    
+                        </select><br>
+                        <button>join</button>
+                    </div>
+                </div>
             </form>
+
+            
         </div>
     </div>
+
+    <script id="Exst-group" type="text/html">
+        {{#groups}}
+            <option value={{groupname}}>{{groupname}}</option>
+        {{/groups}}
+    </script>
+    <script src="https://unpkg.com/mustache@latest"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/index.js"></script>
 </body>
 </html>

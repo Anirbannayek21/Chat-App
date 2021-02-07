@@ -1,4 +1,5 @@
 const users=[]
+let groups=[]
 
 const addUser= ({_id, username ,groupname}) =>{
     // clean data
@@ -51,6 +52,15 @@ const getUserINGroup = (groupname) =>{
     return users.filter((user)=>user.groupname===groupname)
 }
 
+
+const getGroups = ()=>{
+    const key = 'groupname'
+    groups = [...new Map(users.map(item =>[item[key], item])).values()];
+    return groups
+}
+
+
+console.log(users)
 module.exports={
-    addUser,removeUser,getUser,getUserINGroup
+    addUser,removeUser,getUser,getUserINGroup,getGroups
 }
