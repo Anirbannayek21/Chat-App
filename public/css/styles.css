@@ -23,11 +23,16 @@ button:disabled {
     background: #7c5cbf94;
 }
 
+#side{
+    height: 100vh;
+    margin: 0;
+}
 .chat {
     display: flex;
 }
 
 .chat__sidebar {
+    display: none;
     height: 100vh;
     color: white;
     background: #333744;
@@ -52,8 +57,8 @@ button:disabled {
 }
 
 .compose {
+    width:95vw;
     display: flex;
-    flex-shrink: 0;
     margin-top: 16px;
     padding: 24px;
     position: fixed;
@@ -72,7 +77,7 @@ button:disabled {
     width: 100%;
     flex-grow: 1;
     padding: 12px;
-    margin: 0 16px 0 0;
+    margin: 0 5px 0 0;
     font-size: 17px;
 }
 
@@ -81,7 +86,7 @@ button:disabled {
 }
 
 #location{
-    margin-right: 15px !important;
+    margin-right: 40px !important;
 }
 .message {
     margin-bottom: 16px;  
@@ -183,12 +188,19 @@ option{
     border-radius: 15px;
     margin-bottom: 10px;
 }
-
-
-.title h1{
+.title{
+    display: flex;
     background:  #7C5CBF;
+}
+.title button{
+    flex-direction: row;
+    margin: 0;
+    font-size: 2rem !important;
+}
+.title h1{
     padding: 10px;
     font-size: 2rem !important;
+
 }
 
 .whole h2{
@@ -216,3 +228,18 @@ option{
 #existing-group{
     display: none;
 }
+
+#close{
+    border: 1px solid white;
+    margin: 2px;
+    padding: 5px;
+}
+@media only screen and (max-width: 720px) {
+    #sidebar {
+      text-align: center;
+
+    }
+    .chat__messages{
+        max-height: 60vh;
+    }
+  }

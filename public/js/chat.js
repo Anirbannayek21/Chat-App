@@ -27,7 +27,8 @@ const autoScroll=()=>{
     const $newMessage = $massages.lastElementChild
 
     // height of new element
-    const newMessageHeight = $newMessage.offsetHeight
+    const newMessageHeight = $newMessage.offsetHeight +10
+    console.log(newMessageHeight)
     // visible height
     const visibleHeight = $massages.offsetHeight
 
@@ -121,7 +122,7 @@ socket.on('groupData',({groupname,users})=>{
         groupname:groupname,
         users
     })
-    document.querySelector('#sidebar').innerHTML=html
+    document.querySelector('.whole').insertAdjacentHTML('beforeend', html)
 })
 
 // client emit
@@ -172,6 +173,19 @@ $sendLocationButton.addEventListener('click',()=>{
             $sendLocationButton.removeAttribute('disabled')
         })
     })
+})
+
+document.querySelector('#side').addEventListener('click',()=>{
+    document.querySelector('#side').style.display='none'
+    document.querySelector('#sidebar').style.display='block'
+    document.querySelector(".compose").style.width='68vw'
+    // document.querySelector('.compose').setAttribute('width','90vw')
+})
+
+document.querySelector('#close').addEventListener('click',()=>{
+    document.querySelector('#sidebar').style.display='none'
+    document.querySelector('#side').style.display='block'
+    document.querySelector(".compose").style.width='95vw'
 })
 
 socket.emit('join',{username,groupname},(error)=>{

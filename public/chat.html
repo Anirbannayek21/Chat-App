@@ -9,8 +9,16 @@
 </head>
 <body>
     <div class="chat">
+        <button id="side">></button>
         <div id="sidebar" class="chat__sidebar">
-            
+            <div class="whole">
+                <div class="title">
+                    <h1><strong>Chat App</strong><button id="close">x</button></h1>
+                    
+                </div>
+        
+               
+            </div>
         </div>
         <div class="chat__main">
 
@@ -85,18 +93,12 @@
     </script>
 
     <script id="sidebar-template" type="text/html">
-        <div class="whole">
-            <div class="title">
-                <h1><strong>Chat App</strong></h1>
-            </div>
-    
-            <h2>{{groupname}}</h2>
-            <ul>
-                {{#users}}
-                <li>{{username}}</li>
-                {{/users}}
-            </ul>
-        </div>
+        <h2>{{groupname}}</h2>
+        <ul>
+            {{#users}}
+            <li>{{username}}</li>
+            {{/users}}
+        </ul>
     </script>
     
     
