@@ -122,7 +122,7 @@ socket.on('groupData',({groupname,users})=>{
         groupname:groupname,
         users
     })
-    document.querySelector('.whole').insertAdjacentHTML('beforeend', html)
+    document.querySelector('.list').innerHTML=html
 })
 
 // client emit
